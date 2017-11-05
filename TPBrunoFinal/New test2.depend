@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1509416240 source:e:\tp bruno\new test2\lex.yy.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<io.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"y.tab.h"
+	<stdlib.h>
+
+1509416239 e:\tp bruno\new test2\y.tab.h
+
+1509416239 source:e:\tp bruno\new test2\y.tab.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	<stddef.h>
+	<libintl.h>
+	<alloca.h>
+	<malloc.h>
+	<stdlib.h>
+	<stdlib.h>
+	<stdio.h>
+

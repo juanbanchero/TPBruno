@@ -1,0 +1,56 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "y.tab.h"
+%}
+
+LETRA [a-zA-Z]
+DIGITO [0-9]
+INICIO "inicio"
+FIN "fin"
+LEER "leer"
+ESCRIBIR "escribir"
+ASIGNACION ":="
+PARENIZQUIERDO "("
+PARENDERECHO ")"
+COMA ","
+PUNTOYCOMA ";"
+SUMA "+"
+RESTA "-"
+ESPACIO " "
+
+
+IDENTIFICADOR {LETRA}({LETRA}|{DIGITO})*
+CONSTANTE {DIGITO}({DIGITO})*
+OPERADORADITIVO {SUMA}|{RESTA}
+PALABRARESERVADA {INICIO}|{FIN}|{LEER}|{ESCRIBIR}
+CARACTERPUNTUACION {PARENIZQUIERDO}|{PARENDERECHO}|{COMA}|{PUNTOYCOMA}
+TOKEN {IDENTIFICADOR}|{CONSTANTE}|{PALABRARESERVADA}|{OPERADORADITIVO}|{ASIGNACION}|{CARACTERPUNTUACION}
+
+%%
+{INICIO}		{return INICIO;}
+{ESCRIBIR}		{return ESCRIBIR;}
+{LEER}			{return LEER;}
+{FIN}			{return FIN;}
+{IDENTIFICADOR}		{
+				if(strlen(yytext) < 32)
+				{
+					return IDENTIFICADOR;
+				}
+			}
+
+{CONSTANTE}		{
+				yylval.dval = atoi(yytext);
+				return CONSTANTE;
+			}
+{SUMA}			{return SUMA;}
+{RESTA}			{return RESTA;}
+{PARENIZQUIERDO}	{return PARENIZQUIERDO;}
+{PARENDERECHO}		{return PARENDERECHO;}
+{COMA}			{return COMA;}
+{PUNTOYCOMA}		{return PUNTOYCOMA;}
+{ASIGNACION}		{return ASIGNACION;}
+{ESPACIO}		{;}
+"."			{return FDT;}
+%%

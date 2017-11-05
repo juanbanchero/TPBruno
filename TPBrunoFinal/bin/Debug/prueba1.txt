@@ -1,0 +1,9 @@
+inicio
+a:=5; 
+b:=10;
+escribir(a+b);
+
+
+
+
+fin.
